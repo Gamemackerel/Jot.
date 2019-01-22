@@ -227,6 +227,7 @@ public class MainActivity extends AppCompatActivity implements OnKeyboardVisibil
                 myWriter.write(textToSave);
                 myWriter.close();
                 setNoteChangeListener();
+                generateNotificationsFromNote(textToSave);
             }
         } catch (IOException e) {
             simpleToast("failure while saving note");
