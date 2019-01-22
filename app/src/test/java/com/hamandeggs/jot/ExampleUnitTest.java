@@ -1,4 +1,4 @@
-package com.example.abemiller.myapplication;
+package com.hamandeggs.jot;
 
 import org.junit.Test;
 

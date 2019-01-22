@@ -1,4 +1,4 @@
-package com.example.abemiller.myapplication;
+package com.hamandeggs.jot;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
