@@ -13,6 +13,7 @@ import android.graphics.Rect;
 import android.os.Build;
 import android.os.Looper;
 import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -56,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements OnKeyboardVisibil
     private int tapCounter = 0;
     private int notificationCounter = 0;
     private NotificationManager notificationManager;
+    private NotificationManagerCompat notificationManagerCompat;
 
 
     @Override
@@ -366,7 +368,11 @@ public class MainActivity extends AppCompatActivity implements OnKeyboardVisibil
 
         // remove notifications that no longer exist
         for (int i = notificationCounter + 1; i <= oldCount; i++) {
-            notificationManager.cancel(i);
+            if (notificationManager != null) {
+                notificationManager.cancel(i);
+            } else {
+                notificationManagerCompat.cancel(i);
+            }
         }
 
         s.close();
@@ -376,7 +382,7 @@ public class MainActivity extends AppCompatActivity implements OnKeyboardVisibil
         // Create an explicit intent for mainactivity
         // create a notification with the given message
         // onclick the message opens mainactivity
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this, NOTIFICATION_CHANNEL_ID)
@@ -387,7 +393,11 @@ public class MainActivity extends AppCompatActivity implements OnKeyboardVisibil
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .setContentIntent(pendingIntent)
                 .setOnlyAlertOnce(true);
-        notificationManager.notify(++notificationCounter, mBuilder.build());
+        if (notificationManager != null) {
+            notificationManager.notify(++notificationCounter, mBuilder.build());
+        } else {
+            notificationManagerCompat.notify(++notificationCounter, mBuilder.build());
+        }
     }
 
     private void createNotificationChannel() {
@@ -399,6 +409,8 @@ public class MainActivity extends AppCompatActivity implements OnKeyboardVisibil
             channel.setDescription(NOTIFICATION_CHANNEL_DESC);
             notificationManager = getSystemService(NotificationManager.class);
             notificationManager.createNotificationChannel(channel);
+        } else {
+            notificationManagerCompat = NotificationManagerCompat.from(this);
         }
     }
 
