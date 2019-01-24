@@ -6,7 +6,7 @@ android {
         applicationId "com.hamandeggs.jot"
         minSdkVersion 15
         targetSdkVersion 28
-        versionCode 2
+        versionCode 3
         versionName "1.02"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
