@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Jot.iml" filepath="$PROJECT_DIR$/.idea/modules/Jot.iml" />
       <module fileurl="file://$PROJECT_DIR$/Jot..iml" filepath="$PROJECT_DIR$/Jot..iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Jot.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Jot.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Jot.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Jot.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Jot.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Jot.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Jot.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Jot.app.unitTest.iml" />
     </modules>
   </component>
 </project>
